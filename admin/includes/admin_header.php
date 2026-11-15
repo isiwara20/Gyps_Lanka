@@ -71,8 +71,11 @@ $flash = get_flash();
             <a href="project_add.php" class="sidebar-link <?= ($adminPage === 'project_add') ? 'active' : '' ?>">
                 <i class="fa-solid fa-circle-plus"></i> Add Project
             </a>
-            <a href="services.php" class="sidebar-link <?= ($adminPage === 'services') ? 'active' : '' ?>">
-                <i class="fa-solid fa-screwdriver-wrench"></i> Services List
+            <a href="services.php" class="sidebar-link <?= ($adminPage === 'services' || $adminPage === 'service_edit' || $adminPage === 'service_add') ? 'active' : '' ?>">
+                <i class="fa-solid fa-screwdriver-wrench"></i> Services Management
+            </a>
+            <a href="service_add.php" class="sidebar-link <?= ($adminPage === 'service_add') ? 'active' : '' ?>">
+                <i class="fa-solid fa-plus-circle"></i> Add Service
             </a>
 
             <div class="nav-section-title">Inquiries &amp; Settings</div>

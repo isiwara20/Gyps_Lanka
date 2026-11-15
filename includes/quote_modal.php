@@ -1,3 +1,15 @@
+<?php
+$modalServices = [];
+$modalDb = get_db();
+if ($modalDb) {
+    try {
+        $modalServices = $modalDb->query("SELECT title FROM services ORDER BY display_order ASC")->fetchAll(PDO::FETCH_COLUMN);
+    } catch (Exception $e) {}
+}
+if (empty($modalServices)) {
+    $modalServices = ['Gypsum False Ceilings', 'LED & Cove Lighting', 'Gypsum Board Works', 'Interior Finishing', 'Custom Designs & More', 'Ceiling Materials & Boards'];
+}
+?>
 <!-- GYPS LANKA - Free Quote Modal -->
 <div class="modal-overlay" id="quoteModal">
     <div class="modal-box">
@@ -31,12 +43,9 @@
                 <div class="form-group" style="margin-bottom:0;">
                     <label class="form-label" for="modalServiceSelect">Service / Solution</label>
                     <select id="modalServiceSelect" name="service" class="form-control">
-                        <option value="Gypsum False Ceilings">Gypsum False Ceilings</option>
-                        <option value="LED & Cove Lighting">LED & Cove Lighting</option>
-                        <option value="Gypsum Board Works">Gypsum Board Works</option>
-                        <option value="Interior Finishing">Interior Finishing</option>
-                        <option value="Custom Designs & More">Custom Designs & More</option>
-                        <option value="Ceiling Materials & Boards">Ceiling Materials & Boards</option>
+                        <?php foreach ($modalServices as $mSrv): ?>
+                        <option value="<?= htmlspecialchars($mSrv) ?>"><?= htmlspecialchars($mSrv) ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="form-group" style="margin-bottom:0;">

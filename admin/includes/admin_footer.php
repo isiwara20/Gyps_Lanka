@@ -1,3 +1,7 @@
+            <footer class="admin-bottom-bar" style="margin-top: 40px; padding: 20px 0 10px; border-top: 1px solid var(--adm-border, #e2e8f0); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #64748b; flex-wrap: wrap; gap: 8px;">
+                <div>&copy; <?= date('Y') ?> Gyps Lanka Admin Console</div>
+                <div>Developed by <a href="https://www.facebook.com/chandilagroups/" target="_blank" rel="noopener noreferrer" style="color: var(--adm-gold, #d4af37); font-weight: 600; text-decoration: none;">Chandila</a></div>
+            </footer>
         </div> <!-- /admin-content -->
     </main>
 </div> <!-- /admin-layout -->

@@ -98,8 +98,13 @@ $siteDomain = get_setting('website', 'gypslanka.com');
 
     <!-- Bottom Copyright -->
     <div class="footer-bottom">
-        <div class="container">
-            &copy; 2026 Gypslanka. All Rights Reserved. | Ceiling & Interior Solutions in Sri Lanka.
+        <div class="container footer-bottom-content">
+            <div class="footer-copyright-text">
+                &copy; <?= date('Y') ?> Gypslanka. All Rights Reserved. | Ceiling &amp; Interior Solutions in Sri Lanka.
+            </div>
+            <div class="footer-dev-credit">
+                Developed by <a href="https://www.facebook.com/chandilagroups/" target="_blank" rel="noopener noreferrer">Chandila</a>
+            </div>
         </div>
     </div>
 </footer>

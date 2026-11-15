@@ -256,15 +256,22 @@ $slideCount = count($heroSlides);
 
         <div class="services-grid">
             <?php foreach ($servicesList as $idx => $srv): 
-                $icon = !empty($srv['icon']) ? $srv['icon'] : 'fa-layer-group';
-                if ($srv['slug'] === 'led-cove-lighting' || strpos($srv['title'], 'Lighting') !== false) $icon = 'fa-lightbulb';
-                if ($srv['slug'] === 'gypsum-board-works' || strpos($srv['title'], 'Board') !== false) $icon = 'fa-border-all';
-                if ($srv['slug'] === 'interior-finishing' || strpos($srv['title'], 'Finishing') !== false) $icon = 'fa-couch';
-                if ($srv['slug'] === 'custom-designs-and-more' || strpos($srv['title'], 'Custom') !== false) $icon = 'fa-star';
+                $rawIcon = !empty($srv['icon_svg']) ? $srv['icon_svg'] : (!empty($srv['icon']) ? $srv['icon'] : 'layers');
+                $iconMap = [
+                    'layers'              => 'fa-layer-group',
+                    'lightbulb'           => 'fa-lightbulb',
+                    'grid'                => 'fa-border-all',
+                    'sofa'                => 'fa-couch',
+                    'star'                => 'fa-star',
+                    'wand-magic-sparkles' => 'fa-wand-magic-sparkles',
+                    'paint-roller'        => 'fa-paint-roller',
+                    'cubes'               => 'fa-cubes'
+                ];
+                $icon = $iconMap[$rawIcon] ?? (strpos($rawIcon, 'fa-') === 0 ? $rawIcon : 'fa-' . $rawIcon);
             ?>
             <div class="service-card reveal-on-scroll reveal-up delay-<?= ($idx % 5) + 1 ?>">
                 <div class="service-card-img">
-                    <img src="<?= htmlspecialchars($srv['image']) ?>" alt="<?= htmlspecialchars($srv['title']) ?>">
+                    <img src="<?= htmlspecialchars($srv['image'] ?: 'assets/images/service-1.jpg') ?>" alt="<?= htmlspecialchars($srv['title']) ?>">
                 </div>
                 <div class="service-card-body">
                     <div class="service-icon-circle">
@@ -272,7 +279,7 @@ $slideCount = count($heroSlides);
                     </div>
                     <h3><?= htmlspecialchars($srv['title']) ?></h3>
                     <p><?= htmlspecialchars($srv['short_desc'] ?? 'Premium ceiling and interior craftsmanship.') ?></p>
-                    <a href="services.php" style="color:var(--gold); font-size:0.82rem; font-weight:700; margin-top:auto; display:inline-flex; align-items:center; gap:5px;">
+                    <a href="services.php#<?= htmlspecialchars($srv['slug']) ?>" style="color:var(--gold); font-size:0.82rem; font-weight:700; margin-top:auto; display:inline-flex; align-items:center; gap:5px;">
                         Explore <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i>
                     </a>
                 </div>
