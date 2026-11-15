@@ -1,0 +1,2 @@
+[2026-11-15 06:23:40] --- Starting SMTP session to send to: info@gypslanka.com from: support@gypslanka.com ---
+[2026-11-15 06:23:40] ERROR: Could not connect to SMTP host ssl://mail.gypslanka.com:465: php_network_getaddresses: getaddrinfo for mail.gypslanka.com failed: No such host is known.  (0)
